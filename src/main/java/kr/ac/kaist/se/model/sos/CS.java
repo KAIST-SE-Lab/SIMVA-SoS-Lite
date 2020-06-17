@@ -1,4 +1,4 @@
-package kr.ac.kaist.se.model.sys;
+package kr.ac.kaist.se.model.sos;
 
 import kr.ac.kaist.se.abst.SimActionableObject;
 import kr.ac.kaist.se.intf.Decidable;
