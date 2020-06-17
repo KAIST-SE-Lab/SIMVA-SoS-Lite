@@ -1,6 +1,6 @@
 package kr.ac.kaist.se.model.sos;
 
-import kr.ac.kaist.se.abst.SimObject;
+import kr.ac.kaist.se.model.abst.sys._SimObject_;
 
-public abstract class Organization extends SimObject {
+abstract public class Organization extends _SimObject_ {
 }

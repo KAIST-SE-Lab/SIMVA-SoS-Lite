@@ -1,8 +1,6 @@
 package kr.ac.kaist.se.model.sos;
 
-import kr.ac.kaist.se.abst.SimActionableObject;
-import kr.ac.kaist.se.intf.Decidable;
+import kr.ac.kaist.se.intf.DecisionMakable;
 
-public abstract class CS extends SimActionableObject implements Decidable {
-
+abstract public class CS extends SystemEntity implements DecisionMakable {
 }

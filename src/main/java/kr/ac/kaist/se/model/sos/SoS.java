@@ -1,16 +1,6 @@
 package kr.ac.kaist.se.model.sos;
 
-import kr.ac.kaist.se.abst.SimObject;
+import kr.ac.kaist.se.model.abst.sys._SimObject_;
 
-public abstract class SoS extends SimObject {
-
-    @Override
-    public void run() {
-        
-    }
-
-    @Override
-    public void update() {
-
-    }
+abstract public class SoS extends _SimObject_ {
 }

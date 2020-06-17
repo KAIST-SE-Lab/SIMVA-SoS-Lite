@@ -1,4 +1,6 @@
 package kr.ac.kaist.se.model.abst.sys;
 
-abstract public class _SimObject_ {
+import kr.ac.kaist.se.intf.Simulatable;
+
+abstract public class _SimObject_ implements Simulatable {
 }

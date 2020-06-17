@@ -1,4 +1,4 @@
 package kr.ac.kaist.se.simdata.input;
 
-public class SimScenario {
+abstract public class SimScenario {
 }
