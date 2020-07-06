@@ -1,11 +1,12 @@
-package kr.ac.kaist.se.controller.verif;
+package sprt;
 
 import kr.ac.kaist.se.controller.sim.SimEngine;
+import kr.ac.kaist.se.controller.verif.VerificationEngine;
 import kr.ac.kaist.se.model.property.Property;
 import kr.ac.kaist.se.model.property.PropertyChecker;
 import kr.ac.kaist.se.simdata.output.record.SimLog;
 
-public class SPRTVerificationEngine extends VerificationEngine{
+public class SPRTVerificationEngine extends VerificationEngine {
     double alpha;
     double beta;
     double delta;

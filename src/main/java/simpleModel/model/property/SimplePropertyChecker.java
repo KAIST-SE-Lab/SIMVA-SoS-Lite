@@ -1,5 +1,7 @@
-package kr.ac.kaist.se.model.property;
+package simpleModel.model.property;
 
+import kr.ac.kaist.se.model.property.Property;
+import kr.ac.kaist.se.model.property.PropertyChecker;
 import kr.ac.kaist.se.simdata.output.record.SimLog;
 import kr.ac.kaist.se.simdata.output.record.SimSnapshot;
 

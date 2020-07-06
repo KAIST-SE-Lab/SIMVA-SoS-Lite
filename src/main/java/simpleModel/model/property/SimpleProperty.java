@@ -1,6 +1,8 @@
-package kr.ac.kaist.se.model.property;
+package simpleModel.model.property;
 
-public class SimpleProperty extends Property{
+import kr.ac.kaist.se.model.property.Property;
+
+public class SimpleProperty extends Property {
     public SimpleProperty(String name, String specification, String propertyType) {
         super(name, specification, propertyType);
     }

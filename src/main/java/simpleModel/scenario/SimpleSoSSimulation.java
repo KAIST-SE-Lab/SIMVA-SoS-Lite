@@ -1,4 +1,4 @@
-package kr.ac.kaist.se.scenario;
+package simpleModel.scenario;
 
 public class SimpleSoSSimulation {
 }

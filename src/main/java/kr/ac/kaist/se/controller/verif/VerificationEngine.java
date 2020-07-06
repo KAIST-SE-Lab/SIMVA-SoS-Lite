@@ -5,9 +5,9 @@ import kr.ac.kaist.se.model.property.Property;
 import kr.ac.kaist.se.model.property.PropertyChecker;
 
 public abstract class VerificationEngine {
-    SimEngine simEngine;
-    Property property;
-    PropertyChecker propertyChecker;
+    public SimEngine simEngine;
+    public Property property;
+    public PropertyChecker propertyChecker;
 
     public VerificationEngine(SimEngine simEngine, Property property, PropertyChecker propertyChecker) {
         this.simEngine = simEngine;

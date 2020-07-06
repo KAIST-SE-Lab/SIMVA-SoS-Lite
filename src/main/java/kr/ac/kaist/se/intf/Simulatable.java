@@ -1,6 +1,11 @@
 package kr.ac.kaist.se.intf;
 
+import kr.ac.kaist.se.simdata.output.intermediate.RunResult;
+import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
+
+import java.util.ArrayList;
+
 public interface Simulatable {
-    void run();
-    void update();
+    ArrayList<RunResult> run();
+    ArrayList<UpdateResult> update();
 }
