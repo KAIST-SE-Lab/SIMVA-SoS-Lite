@@ -3,6 +3,7 @@ package simpleModel;
 import kr.ac.kaist.se.controller.sim.SimEngine;
 import kr.ac.kaist.se.model.sos.SoS;
 import simpleModel.model.sos.SimpleCS;
+import simpleModel.model.sos.SimpleCS2;
 import simpleModel.model.sos.SimpleSoS;
 import simpleModel.simdata.input.SimpleConfiguration;
 import simpleModel.simdata.input.SimpleScenario;
@@ -37,7 +38,9 @@ public class main {
         System.out.println("Start main.readModel()");
 
         SimpleSoS simpleSoS = new SimpleSoS();
-        simpleSoS.sos_csList.add(new SimpleCS());
+        SimpleCS2 target = new SimpleCS2();
+        simpleSoS.sos_csList.add(target);
+        simpleSoS.sos_csList.add(new SimpleCS(target));
 
         System.out.println("End main.readModel()");
         return simpleSoS;

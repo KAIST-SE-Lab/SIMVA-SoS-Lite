@@ -75,6 +75,9 @@ public class SimEngine {
 
     private UpdateResult updateSimulation() {
         System.out.println("Start kr.ac.kaist.se.controller.sim.SimEngine.updateSimulation()");
+
+        simpleSoS.update();
+
         System.out.println("End kr.ac.kaist.se.controller.sim.SimEngine.updateSimulation()");
         return null;
     }

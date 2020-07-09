@@ -7,13 +7,17 @@ import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 import java.util.ArrayList;
 
 public class SimpleCS extends CS {
-    public SimpleCS() {
+    SimpleCS2 target;
 
+    public SimpleCS(SimpleCS2 target) {
+        this.target = target;
     }
 
     @Override
     public void doAction() {
         System.out.println("Start simpleModel.simpleCS.doAction()");
+        target.val += 1;
+        System.out.println("target value " + target.val);
         System.out.println("End simpleModel.simpleCS.doAction()");
     }
 
