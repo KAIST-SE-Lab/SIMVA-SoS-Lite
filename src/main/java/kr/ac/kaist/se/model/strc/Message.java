@@ -1,4 +1,4 @@
-package kr.ac.kaist.se.model.sos;
+package kr.ac.kaist.se.model.strc;
 
 import kr.ac.kaist.se.model.abst.comm._SimMessage_;
 

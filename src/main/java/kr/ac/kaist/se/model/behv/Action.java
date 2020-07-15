@@ -1,4 +1,4 @@
-package kr.ac.kaist.se.model.sos;
+package kr.ac.kaist.se.model.behv;
 
 import kr.ac.kaist.se.model.abst.cap._SimAction_;
 
