@@ -14,30 +14,20 @@ abstract public class SoS extends _SimObject_ {
     }
 
     @Override
-    public ArrayList<RunResult> run() {
-        System.out.println("Start SoS.run()");
-
-        ArrayList<RunResult> runResults = new ArrayList<RunResult>(0);
+    public RunResult run() {
+        RunResult runResult = new RunResult(this, new ArrayList<Action>(0));
 
         for(CS cs: sos_csList) {
-            runResults.addAll(cs.run());
+            runResult.addChildRunResult(cs.run());
         }
-
-        System.out.println("End SoS.run()");
-        return runResults;
+        return runResult;
     }
 
     @Override
-    public ArrayList<UpdateResult> update() {
-        System.out.println("Start SoS.update()");
-
-        ArrayList<UpdateResult> updateResults = new ArrayList<UpdateResult>(0);
-
+    public UpdateResult update() {
         for(CS cs: sos_csList) {
-            updateResults.addAll(cs.update());
+            cs.update();
         }
-
-        System.out.println("End SoS.update()");
-        return updateResults;
+        return null;
     }
 }
