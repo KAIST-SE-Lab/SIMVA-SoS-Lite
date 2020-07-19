@@ -6,5 +6,5 @@ import kr.ac.kaist.se.model.abst.sys._SimNonActionableObject_;
 
 abstract public class ResourceEntity extends _SimNonActionableObject_ implements Resourcizable, Occupiable {
 
-    EnumResState resState;
+    protected EnumResState resState;
 }

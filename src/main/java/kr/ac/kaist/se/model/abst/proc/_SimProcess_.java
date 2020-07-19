@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 abstract public class _SimProcess_ {
 
-    String procId;
+    protected String procId;
 
-    ArrayList<_SimProcessNode_> nodeList;
-    ArrayList<_SimProcessEdge_> edgeList;
+    protected ArrayList<_SimProcessNode_> nodeList;
+    protected ArrayList<_SimProcessEdge_> edgeList;
 
-    ArrayList<_SimProcess_> subProcList;    //Subprocesses
+    protected ArrayList<_SimProcess_> subProcList;    //Subprocesses
 
 
 }

@@ -1,12 +1,10 @@
 package kr.ac.kaist.se.model.abst.proc;
 
-import java.util.ArrayList;
-
 abstract public class _SimProcessNode_ {
-    String nodeId;
+    protected String nodeId;
 
-    String label;
+    protected String label;
 
-    boolean isStartNode;
-    boolean isEndNode;
+    protected boolean isStartNode;
+    protected boolean isEndNode;
 }

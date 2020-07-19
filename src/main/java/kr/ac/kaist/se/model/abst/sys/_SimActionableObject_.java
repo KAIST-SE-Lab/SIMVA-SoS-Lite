@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 abstract public class _SimActionableObject_ extends _SimObject_ implements Actionable {
 
-    ArrayList<_SimAction_> actionList;
-    ArrayList<_SimAction_> selectedActionList;
+    protected ArrayList<_SimAction_> actionList;
+    protected ArrayList<_SimAction_> selectedActionList;
 
-    abstract void selectActions(); //TODO: set return
+    abstract protected void selectActions(); //TODO: set return
 }

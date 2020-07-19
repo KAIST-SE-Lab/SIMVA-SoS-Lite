@@ -10,26 +10,26 @@ public class SimScenarioEvent extends _SimEvent_ {
 
     //ScenarioEvent should have a specific target object (or scope of objects)
     //TODO: direct reference to an object
-    _SimObject_ targetObj;
-    String targetObjId;
+    protected _SimObject_ targetObj;
+    protected String targetObjId;
 
-    EnumEventTargetScope targetScope;
+    protected EnumEventTargetScope targetScope;
 
 
     //Temporal properties
-    int timebase;
-    int duration;
-    int period;
-    EnumOccPattern occPattern;
+    protected int timebase;
+    protected int duration;
+    protected int period;
+    protected EnumOccPattern occPattern;
 
     //Geographical properties
 
     //Probabilistic properties
-    boolean isProbabilistic;
-    EnumProbDistribution probDist;  //Probability distribution
-    float probDistValue;
-    float probValue;    //Probability
-    String probExp;     //Probability expression
+    protected boolean isProbabilistic;
+    protected EnumProbDistribution probDist;  //Probability distribution
+    protected float probDistValue;
+    protected float probValue;    //Probability
+    protected String probExp;     //Probability expression
 
     //TODO: scenario execution
 }

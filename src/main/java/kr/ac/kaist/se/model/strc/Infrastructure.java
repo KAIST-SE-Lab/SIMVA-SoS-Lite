@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 abstract public class Infrastructure extends _SimObject_ {
 
-    EnumInfraType infraType;
+    protected EnumInfraType infraType;
 
-    ArrayList<SystemEntity> systemEntityList;
-    ArrayList<ServiceEntity> serviceEntityList;
-    ArrayList<ResourceEntity> resourceEntityList;
+    protected ArrayList<SystemEntity> systemEntityList;
+    protected ArrayList<ServiceEntity> serviceEntityList;
+    protected ArrayList<ResourceEntity> resourceEntityList;
 }

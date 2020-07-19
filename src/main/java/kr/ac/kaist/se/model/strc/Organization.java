@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 abstract public class Organization extends _SimObject_ {
 
-    EnumOrgType orgType;
+    protected EnumOrgType orgType;
 
-    ArrayList<Organization> subOrgList; //Suborganizations
-    ArrayList<CS> csList;               //Member CSs
-    ArrayList<Task> taskList;           //List of all tasks included in this org
-    ArrayList<Role> roleList;           //List of all roles included in this org
+    protected ArrayList<Organization> subOrgList; //Suborganizations
+    protected ArrayList<CS> csList;               //Member CSs
+    protected ArrayList<Task> taskList;           //List of all tasks included in this org
+    protected ArrayList<Role> roleList;           //List of all roles included in this org
 }
