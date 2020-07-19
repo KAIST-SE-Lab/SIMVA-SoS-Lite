@@ -12,7 +12,7 @@ abstract public class Role extends _SimNonActionableObject_ {
 //    String roleId;
 //    String roleName;
 
-    ArrayList<_SimAction_> reqActions;  //List of required actions
+    protected ArrayList<_SimAction_> reqActions;  //List of required actions
 
-    ArrayList<CS> assignedCSs;          //CSs who play this role
+    protected ArrayList<CS> assignedCSs;          //CSs who play this role
 }

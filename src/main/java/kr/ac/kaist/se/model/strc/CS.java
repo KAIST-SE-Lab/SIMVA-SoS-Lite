@@ -5,7 +5,6 @@ import kr.ac.kaist.se.intf.DecisionMakable;
 import java.util.ArrayList;
 
 abstract public class CS extends SystemEntity implements DecisionMakable {
-
     //TODO: Using HashMap or HashTable
-    ArrayList<InformationData> knowledgeBase;
+    protected ArrayList<InformationData> knowledgeBase;
 }

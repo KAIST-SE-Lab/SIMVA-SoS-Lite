@@ -5,7 +5,7 @@ import kr.ac.kaist.se.intf.Stateful;
 import kr.ac.kaist.se.model.abst.sys._SimActionableObject_;
 
 abstract public class SystemEntity extends _SimActionableObject_
-implements Communicatable, Stateful {
+        implements Communicatable, Stateful {
 
-    EnumSystemState curState;
+    protected EnumSystemState curState;
 }

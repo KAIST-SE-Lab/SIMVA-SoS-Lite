@@ -6,8 +6,7 @@ import java.util.ArrayList;
 
 abstract public class Task extends _SimProcess_ {
 
-    ArrayList<Task> subTaskList;
-    ArrayList<Role> roleList;
-
+    protected ArrayList<Task> subTaskList;
+    protected ArrayList<Role> roleList;
 
 }

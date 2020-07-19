@@ -6,16 +6,16 @@ import kr.ac.kaist.se.model.abst.data._SimData_;
 import java.util.ArrayList;
 
 abstract public class _SimMessage_ implements Sendable {
-    String msgId;
+    protected String msgId;
 
     //TODO: other properties of a message
-    String msgTag; //or EnumMsgTag
+    protected String msgTag; //or EnumMsgTag
 
-    EnumMsgType msgType;
+    protected EnumMsgType msgType;
 
     //TODO: properties for communication
-    String senderId;
-    String receiverId;
+    protected String senderId;
+    protected String receiverId;
 
-    ArrayList<_SimData_> dataList;
+    protected ArrayList<_SimData_> dataList;
 }

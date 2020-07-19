@@ -3,10 +3,10 @@ package kr.ac.kaist.se.model.abst.proc;
 import java.util.ArrayList;
 
 abstract public class _SimProcessEdge_ {
-    String edgeId;
+    protected String edgeId;
 
-    String label;
+    protected String label;
 
-    _SimProcessNode_ fromNode;
-    ArrayList<_SimProcessNode_> toNodes;
+    protected _SimProcessNode_ fromNode;
+    protected ArrayList<_SimProcessNode_> toNodes;
 }

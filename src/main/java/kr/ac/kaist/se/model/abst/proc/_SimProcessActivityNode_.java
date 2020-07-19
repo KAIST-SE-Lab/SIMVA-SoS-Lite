@@ -5,10 +5,10 @@ import kr.ac.kaist.se.model.strc.ResourceEntity;
 
 import java.util.ArrayList;
 
-abstract public class _SimProcessActivityNode_ extends _SimProcessNode_{
+abstract public class _SimProcessActivityNode_ extends _SimProcessNode_ {
 
-    EnumActivityType activityType;
+    protected EnumActivityType activityType;
 
-    ArrayList<Role> reqRoles;
-    ArrayList<ResourceEntity> reqResources;
+    protected ArrayList<Role> reqRoles;
+    protected ArrayList<ResourceEntity> reqResources;
 }

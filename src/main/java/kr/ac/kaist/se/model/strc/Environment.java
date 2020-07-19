@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 abstract public class Environment extends _SimObject_ {
 
-    EnumEnvType envType;
+    protected EnumEnvType envType;
 
-    ArrayList<EnvElement> envElmtList;
+    protected ArrayList<EnvElement> envElmtList;
 }

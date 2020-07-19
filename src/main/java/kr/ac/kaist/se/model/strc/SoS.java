@@ -8,21 +8,21 @@ import java.util.ArrayList;
 abstract public class SoS extends _SimObject_ {
 
     //High-level containers
-    ArrayList<Organization> orgList;
-    ArrayList<Infrastructure> infraList;
-    ArrayList<Environment> envList;
+    protected ArrayList<Organization> orgList;
+    protected ArrayList<Infrastructure> infraList;
+    protected ArrayList<Environment> envList;
 
     //All member constituents
-    ArrayList<CS> csList;
+    protected ArrayList<CS> csList;
 
     //All tasks
-    ArrayList<Task> taskList;
+    protected ArrayList<Task> taskList;
 
     //Infrastructure entities
-    ArrayList<SystemEntity> systemEntityList;
-    ArrayList<ResourceEntity> resourceEntityList;
-    ArrayList<ServiceEntity> serviceEntityList;
+    protected ArrayList<SystemEntity> systemEntityList;
+    protected ArrayList<ResourceEntity> resourceEntityList;
+    protected ArrayList<ServiceEntity> serviceEntityList;
 
     //Environment entities
-    ArrayList<EnvElement> envElmtList;
+    protected ArrayList<EnvElement> envElmtList;
 }

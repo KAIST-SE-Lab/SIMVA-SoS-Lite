@@ -7,10 +7,10 @@ import java.util.ArrayList;
 
 abstract public class ServiceEntity extends _SimActionableObject_ implements Occupiable {
 
-    String serviceDesc;
-    String serviceProviderId;
+    protected String serviceDesc;
+    protected String serviceProviderId;
 
-    ArrayList<SystemEntity> reqSysEntities;
+    protected ArrayList<SystemEntity> reqSysEntities;
 
     //TODO: Service interface
     //Service interface
