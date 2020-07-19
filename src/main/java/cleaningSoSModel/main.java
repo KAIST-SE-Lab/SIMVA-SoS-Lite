@@ -1,8 +1,8 @@
 package cleaningSoSModel;
 
-import kr.ac.kaist.se.controller.sim.SimEngine;
-import cleaningSoSModel.model.sos.SweepingRobot;
-import cleaningSoSModel.model.sos.CleaningSoS;
+import kr.ac.kaist.se.cont.sim.SimEngine;
+import cleaningSoSModel.model.strc.SweepingRobot;
+import cleaningSoSModel.model.strc.CleaningSoS;
 import cleaningSoSModel.simdata.input.CleaningSoSConfiguration;
 import cleaningSoSModel.simdata.input.CleaningSoSScenario;
 
@@ -23,7 +23,7 @@ public class main {
 
     private static CleaningSoS readModel(String fileName) {
         CleaningSoS cleaningSoS = new CleaningSoS();
-        cleaningSoS.sos_csList.add(new SweepingRobot(0, 0));
+        cleaningSoS.addCS(new SweepingRobot(0, 0));
         return cleaningSoS;
     }
 

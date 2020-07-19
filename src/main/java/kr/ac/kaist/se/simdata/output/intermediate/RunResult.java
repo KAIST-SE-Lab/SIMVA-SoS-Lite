@@ -1,9 +1,7 @@
 package kr.ac.kaist.se.simdata.output.intermediate;
 
 import kr.ac.kaist.se.model.abst.sys._SimObject_;
-import kr.ac.kaist.se.model.sos.Action;
-import kr.ac.kaist.se.model.sos.CS;
-import kr.ac.kaist.se.model.sos.SoS;
+import kr.ac.kaist.se.model.behv.Action;
 
 import java.util.ArrayList;
 
