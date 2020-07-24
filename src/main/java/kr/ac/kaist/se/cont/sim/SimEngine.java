@@ -57,7 +57,7 @@ public class SimEngine {
     }
 
     private RunResult resolveConflict(RunResult simulationResult) {
-        return null;
+        return simulationResult;
     }
 
     private UpdateResult updateSimulation(RunResult runResult) {
