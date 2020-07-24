@@ -41,8 +41,14 @@ abstract public class Organization extends _SimObject_ {
 
     public UpdateResult update(RunResult runResult){
         for(RunResult childRunResult: runResult.getChildRunResults()) {
-            _SimObject_ target = childRunResult.getTarget();
-            target.update(childRunResult);
+            if (childRunResult.getTarget() instanceof Organization){
+                Organization target = (Organization) childRunResult.getTarget();
+                target.update(childRunResult);
+            }
+            else {
+                CS target = (CS) childRunResult.getTarget();
+                target.update(childRunResult);
+            }
         }
         return null;
     }

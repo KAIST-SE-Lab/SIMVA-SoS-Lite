@@ -45,7 +45,7 @@ abstract public class SoS extends _SimObject_ {
 
     public UpdateResult update(RunResult runResult){
         for(RunResult childRunResult: runResult.getChildRunResults()) {
-            _SimObject_ target = childRunResult.getTarget();
+            Organization target = (Organization) childRunResult.getTarget();
             target.update(childRunResult);
         }
         return null;
