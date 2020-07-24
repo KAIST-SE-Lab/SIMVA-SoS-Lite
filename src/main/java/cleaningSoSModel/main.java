@@ -23,8 +23,8 @@ public class main {
 
     private static CleaningSoS readModel(String fileName) {
         CleaningSoS cleaningSoS = new CleaningSoS();
-        cleaningSoS.addCS(new SweepingRobot(cleaningSoS, 0, 0));
-        cleaningSoS.addCS(new SweepingRobot(cleaningSoS, 1, 1));
+        cleaningSoS.addCS(new SweepingRobot(cleaningSoS, 0, 0, "No1"));
+        cleaningSoS.addCS(new SweepingRobot(cleaningSoS, 0, 0, "No2"));
         return cleaningSoS;
     }
 

@@ -9,8 +9,9 @@ import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 
 public class SweepingRobot extends Robot {
 
-    public SweepingRobot(SoS sos, int x, int y) {
+    public SweepingRobot(SoS sos, int x, int y, String name) {
         super(sos, x, y);
+        this.name = name;
         this.addAction(new Sweeping(this));
     }
 
@@ -26,7 +27,12 @@ public class SweepingRobot extends Robot {
 
     @Override
     public void doDecisionMaking() {
-
+        if (Math.random() < 0.5) {
+            this.addSelectedAction(new Moving(this, 1, 1));
+        }
+        else {
+            this.addSelectedAction(new Sweeping(this));
+        }
     }
 
     @Override
