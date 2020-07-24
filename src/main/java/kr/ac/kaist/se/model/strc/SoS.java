@@ -34,7 +34,6 @@ abstract public class SoS extends _SimObject_ {
         this.csList = new ArrayList<CS>(0);
     }
 
-    @Override
     public RunResult run(){
         RunResult runResult = new RunResult(this, new ArrayList<_SimAction_>(0));
         for(Organization organization: this.orgList) {
@@ -43,7 +42,6 @@ abstract public class SoS extends _SimObject_ {
         return runResult;
     }
 
-    @Override
     public UpdateResult update(RunResult runResult){
         for(RunResult childRunResult: runResult.getChildRunResults()) {
             _SimObject_ target = childRunResult.getTarget();

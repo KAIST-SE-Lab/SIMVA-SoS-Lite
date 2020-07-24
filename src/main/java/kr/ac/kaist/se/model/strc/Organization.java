@@ -28,7 +28,6 @@ abstract public class Organization extends _SimObject_ {
         this.directCsList = new ArrayList<CS>(0);
     }
 
-    @Override
     public RunResult run(){
         RunResult runResult = new RunResult(this, new ArrayList<_SimAction_>(0));
         for(Organization organization: this.subOrgList) {
@@ -40,7 +39,6 @@ abstract public class Organization extends _SimObject_ {
         return runResult;
     }
 
-    @Override
     public UpdateResult update(RunResult runResult){
         for(RunResult childRunResult: runResult.getChildRunResults()) {
             _SimObject_ target = childRunResult.getTarget();
