@@ -30,7 +30,8 @@ abstract public class SoS extends _SimObject_ {
     //Environment entities
     protected ArrayList<EnvElement> envElmtList;
 
-    public SoS() {
+    public SoS(String name) {
+        this.name = name;
         this.orgList = new ArrayList<Organization>(0);
         this.csList = new ArrayList<CS>(0);
     }
@@ -44,11 +45,13 @@ abstract public class SoS extends _SimObject_ {
     }
 
     public UpdateResult update(RunResult runResult){
+        UpdateResult updateResult = new UpdateResult(this.name);
         for(RunResult childRunResult: runResult.getChildRunResults()) {
             Organization target = (Organization) childRunResult.getTarget();
-            target.update(childRunResult);
+            UpdateResult updateResult1 = target.update(childRunResult);
+            updateResult.addAllLog(updateResult1.getLog());
         }
-        return null;
+        return updateResult;
     }
 
     public void addOrg(Organization organization) {

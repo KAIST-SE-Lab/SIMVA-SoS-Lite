@@ -20,14 +20,15 @@ public class SimEngine {
         this.simScenario = simScenario;
         this.simScenarioEvents = generateEvents(simScenario);
     }
-    
+
     private ArrayList<SimScenarioEvent> generateEvents(SimScenario simScenario) {
         return new ArrayList<SimScenarioEvent>(0);
     }
 
     public SimLog executeSimulation() {
+        SimLog simLog = new SimLog();
         for(int i = 0; i < this.simConfiguration.totalTimeFrame; i++) {
-            System.out.println("Tick " + i);
+            UpdateResult updateResult = new UpdateResult("Tick " + i);
             ArrayList<SimScenarioEvent> eventList = this.getEvent();
             if(eventList.size() > 0){
                 executeEvent(eventList);
@@ -35,9 +36,11 @@ public class SimEngine {
 
             RunResult simulationResult = this.runSimulation();
             simulationResult = this.resolveConflict(simulationResult);
-            UpdateResult updateResult = this.updateSimulation(simulationResult);
+            UpdateResult updateResult1 = this.updateSimulation(simulationResult);
+            updateResult.addAllLog(updateResult1.getLog());
+            simLog.addUpdateResult(updateResult);
         }
-        return null;
+        return simLog;
     }
 
     private ArrayList<SimScenarioEvent> getEvent() {
@@ -59,7 +62,6 @@ public class SimEngine {
     }
 
     private UpdateResult updateSimulation(RunResult runResult) {
-        soS.update(runResult);
-        return null;
+        return soS.update(runResult);
     }
 }

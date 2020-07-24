@@ -52,10 +52,12 @@ abstract public class CS extends SystemEntity implements DecisionMakeable {
     }
 
     public UpdateResult update(RunResult runResult) {
+        UpdateResult updateResult = new UpdateResult(this.name);
+
         for (_SimAction_ selectedAction: runResult.getSelectedActionList()) {
             doAction(selectedAction);
         }
-        return null;
+        return updateResult;
     }
 
     public void doAction(_SimAction_ action){

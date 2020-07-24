@@ -22,7 +22,8 @@ abstract public class Organization extends _SimObject_ {
     protected ArrayList<Task> taskList;           //List of all tasks included in this org
     protected ArrayList<Role> roleList;           //List of all roles included in this org
 
-    public Organization(SoS soS) {
+    public Organization(String name, SoS soS) {
+        this.name = name;
         this.soS = soS;
         soS.addOrg(this);
 
@@ -43,17 +44,21 @@ abstract public class Organization extends _SimObject_ {
     }
 
     public UpdateResult update(RunResult runResult){
+        UpdateResult updateResult = new UpdateResult(this.name);
+
         for(RunResult childRunResult: runResult.getChildRunResults()) {
             if (childRunResult.getTarget() instanceof Organization){
                 Organization target = (Organization) childRunResult.getTarget();
-                target.update(childRunResult);
+                UpdateResult updateResult1 = target.update(childRunResult);
+                updateResult.addAllLog(updateResult1.getLog());
             }
             else {
                 CS target = (CS) childRunResult.getTarget();
-                target.update(childRunResult);
+                UpdateResult updateResult1 = target.update(childRunResult);
+                updateResult.addAllLog(updateResult1.getLog());
             }
         }
-        return null;
+        return updateResult;
     }
 
     public SoS getSoS() {
@@ -99,6 +104,7 @@ abstract public class Organization extends _SimObject_ {
         }
 
         this.csList.add(cs);
+        this.directCsList.add(cs);
     }
 
     public void removeCs(CS cs) {
