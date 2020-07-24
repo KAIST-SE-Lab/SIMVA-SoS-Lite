@@ -16,18 +16,17 @@ public class SweepingRobot extends Robot {
 
     @Override
     public void selectActions(){
-        this.doDecisionMaking();
-    }
-
-    @Override
-    public void doDecisionMaking() {
-        this.clearSelectedAction();
         if (Math.random() < 0.5) {
             this.addSelectedAction(new Moving(this, 1, 1));
         }
         else {
             this.addSelectedAction(new Sweeping(this));
         }
+    }
+
+    @Override
+    public void doDecisionMaking() {
+
     }
 
     @Override

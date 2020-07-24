@@ -25,6 +25,10 @@ public class RunResult {
         return selectedActionList;
     }
 
+    public ArrayList<RunResult> getChildRunResults() {
+        return childRunResults;
+    }
+
     public void addChildRunResult(RunResult runResult) {
         this.childRunResults.add(runResult);
     }
