@@ -2,19 +2,16 @@ package cleaningSoSModel.model.strc;
 
 import cleaningSoSModel.model.behv.Moving;
 import cleaningSoSModel.model.behv.Sweeping;
+import kr.ac.kaist.se.model.behv.Action;
+import kr.ac.kaist.se.model.strc.SoS;
 import kr.ac.kaist.se.simdata.output.intermediate.RunResult;
 import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 
 public class SweepingRobot extends Robot {
 
-    public SweepingRobot(int x, int y) {
-        super(x, y);
+    public SweepingRobot(SoS sos, int x, int y) {
+        super(sos, x, y);
         this.addAction(new Sweeping(this));
-    }
-
-    @Override
-    public void doAction() {
-        this.changeState();
     }
 
     @Override
@@ -31,19 +28,6 @@ public class SweepingRobot extends Robot {
         else {
             this.addSelectedAction(new Sweeping(this));
         }
-    }
-
-    @Override
-    public RunResult run() {
-        this.selectActions();
-        RunResult runResult = new RunResult(this, this.getSelectedActionList());
-        return runResult;
-    }
-
-    @Override
-    public UpdateResult update() {
-        doAction();
-        return null;
     }
 
     @Override
