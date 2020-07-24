@@ -1,7 +1,13 @@
 package kr.ac.kaist.se.cont.sim;
 
 import kr.ac.kaist.se.model.strc.SoS;
+<<<<<<< HEAD
 import kr.ac.kaist.se.simdata.input.*;
+=======
+import kr.ac.kaist.se.simdata.input.SimConfiguration;
+import kr.ac.kaist.se.simdata.input.SimScenario;
+import kr.ac.kaist.se.simdata.input.SimScenarioEvent;
+>>>>>>> origin/engine
 import kr.ac.kaist.se.simdata.output.intermediate.RunResult;
 import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 import kr.ac.kaist.se.simdata.output.record.SimLog;
@@ -35,7 +41,11 @@ public class SimEngine {
 
             RunResult simulationResult = this.runSimulation();
             simulationResult = this.resolveConflict(simulationResult);
+<<<<<<< HEAD
             UpdateResult updateResult = this.updateSimulation();
+=======
+            UpdateResult updateResult = this.updateSimulation(simulationResult);
+>>>>>>> origin/engine
         }
         return null;
     }
@@ -59,8 +69,8 @@ public class SimEngine {
         return null;
     }
 
-    private UpdateResult updateSimulation() {
-        soS.update();
+    private UpdateResult updateSimulation(RunResult runResult) {
+        soS.update(runResult);
         return null;
     }
 }

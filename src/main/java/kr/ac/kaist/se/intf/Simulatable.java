@@ -5,5 +5,5 @@ import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 
 public interface Simulatable {
     RunResult run();
-    UpdateResult update();
+    UpdateResult update(RunResult runResult);
 }
