@@ -22,7 +22,8 @@ abstract public class Organization extends _SimObject_ {
     protected ArrayList<Task> taskList;           //List of all tasks included in this org
     protected ArrayList<Role> roleList;           //List of all roles included in this org
 
-    public Organization() {
+    public Organization(SoS soS) {
+        this.soS = soS;
         this.subOrgList = new ArrayList<Organization>(0);
         this.csList = new ArrayList<CS>(0);
         this.directCsList = new ArrayList<CS>(0);
@@ -86,11 +87,39 @@ abstract public class Organization extends _SimObject_ {
     }
 
     public void addCs(CS cs) {
+        if (parentOrganization != null) {
+            if (!parentOrganization.isContainedCs(cs)) {
+                return;
+            }
+            if (parentOrganization.isContainedDirectCs(cs)) {
+                parentOrganization.removeDirectCs(cs);
+            }
+        }
+
         this.csList.add(cs);
     }
 
     public void removeCs(CS cs) {
         this.csList.remove(cs);
+
+        if (isContainedDirectCs(cs)) {
+            this.removeDirectCs(cs);
+        }
+        else {
+            for (Organization organization: this.subOrgList) {
+                if (organization.isContainedCs(cs)) {
+                    organization.removeCs(cs);
+                }
+            }
+        }
+
+        if (parentOrganization != null) {
+            parentOrganization.tryAddDirectCs(cs);
+        }
+    }
+
+    public boolean isContainedCs(CS cs) {
+        return this.csList.contains(cs);
     }
 
     public ArrayList<CS> getDirectCsList() {
@@ -101,7 +130,26 @@ abstract public class Organization extends _SimObject_ {
         this.directCsList.add(cs);
     }
 
+    public void tryAddDirectCs(CS cs) {
+        if (!this.isSubOrgContains(cs)) {
+            this.addDirectCs(cs);
+        }
+    }
+
     public void removeDirectCs(CS cs) {
         this.directCsList.remove(cs);
+    }
+
+    public boolean isContainedDirectCs(CS cs) {
+        return this.directCsList.contains(cs);
+    }
+
+    public boolean isSubOrgContains(CS cs) {
+        for (Organization organization: this.subOrgList) {
+            if (organization.isContainedCs(cs)) {
+                return true;
+            }
+        }
+        return true;
     }
 }
