@@ -1,5 +1,5 @@
 package kr.ac.kaist.se.intf;
 
-public interface DecisionMakable {
+public interface DecisionMakeable {
     void doDecisionMaking();
 }

@@ -1,11 +1,11 @@
 package kr.ac.kaist.se.model.abst.comm;
 
-import kr.ac.kaist.se.intf.Sendable;
+import kr.ac.kaist.se.intf.Transmittable;
 import kr.ac.kaist.se.model.abst.data._SimData_;
 
 import java.util.ArrayList;
 
-abstract public class _SimMessage_ implements Sendable {
+abstract public class _SimMessage_ implements Transmittable {
     protected String msgId;
 
     //TODO: other properties of a message
