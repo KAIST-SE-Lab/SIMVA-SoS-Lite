@@ -1,5 +1,6 @@
 package cleaningSoSModel;
 
+import cleaningSoSModel.model.strc.CleaningOrganization;
 import kr.ac.kaist.se.cont.sim.SimEngine;
 import cleaningSoSModel.model.strc.SweepingRobot;
 import cleaningSoSModel.model.strc.CleaningSoS;
@@ -23,8 +24,13 @@ public class main {
 
     private static CleaningSoS readModel(String fileName) {
         CleaningSoS cleaningSoS = new CleaningSoS();
-        cleaningSoS.addCS(new SweepingRobot(cleaningSoS, 0, 0, "No1"));
-        cleaningSoS.addCS(new SweepingRobot(cleaningSoS, 0, 0, "No2"));
+        CleaningOrganization cleaningOrganization = new CleaningOrganization(cleaningSoS);
+
+        SweepingRobot sweepingRobot1 = new SweepingRobot(cleaningSoS, 0, 0, "No1");
+        sweepingRobot1.addBelongedOrganization(cleaningOrganization);
+
+        SweepingRobot sweepingRobot2 = new SweepingRobot(cleaningSoS, 0, 0, "No2");
+        sweepingRobot2.addBelongedOrganization(cleaningOrganization);
         return cleaningSoS;
     }
 
