@@ -53,8 +53,7 @@ public class SimEngine {
     }
 
     private RunResult runSimulation() {
-        soS.run();
-        return null;
+        return soS.run();
     }
 
     private RunResult resolveConflict(RunResult simulationResult) {

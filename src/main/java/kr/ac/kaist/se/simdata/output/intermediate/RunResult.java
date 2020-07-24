@@ -1,5 +1,6 @@
 package kr.ac.kaist.se.simdata.output.intermediate;
 
+import kr.ac.kaist.se.model.abst.cap._SimAction_;
 import kr.ac.kaist.se.model.abst.sys._SimObject_;
 import kr.ac.kaist.se.model.behv.Action;
 
@@ -7,10 +8,10 @@ import java.util.ArrayList;
 
 public class RunResult {
     private _SimObject_ target;
-    private ArrayList<Action> selectedActionList;
+    private ArrayList<_SimAction_> selectedActionList;
     private ArrayList<RunResult> childRunResults;
 
-    public RunResult(_SimObject_ target, ArrayList<Action> selectedActionList) {
+    public RunResult(_SimObject_ target, ArrayList<_SimAction_> selectedActionList) {
         this.target = target;
         this.selectedActionList = selectedActionList;
         this.childRunResults = new ArrayList<RunResult>(0);
@@ -20,7 +21,7 @@ public class RunResult {
         return target;
     }
 
-    public ArrayList<Action> getSelectedActionList() {
+    public ArrayList<_SimAction_> getSelectedActionList() {
         return selectedActionList;
     }
 
