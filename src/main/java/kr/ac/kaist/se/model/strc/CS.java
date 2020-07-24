@@ -45,13 +45,12 @@ abstract public class CS extends SystemEntity implements DecisionMakeable {
         organization.removeCs(this);
     }
 
-    @Override
     public RunResult run() {
-        this.selectActions();
+        this.clearSelectedAction();
+        this.doDecisionMaking();
         return new RunResult(this, this.selectedActionList);
     }
 
-    @Override
     public UpdateResult update(RunResult runResult) {
         for (_SimAction_ selectedAction: runResult.getSelectedActionList()) {
             doAction(selectedAction);
@@ -59,7 +58,6 @@ abstract public class CS extends SystemEntity implements DecisionMakeable {
         return null;
     }
 
-    @Override
     public void doAction(_SimAction_ action){
         action.executeAction();
     }

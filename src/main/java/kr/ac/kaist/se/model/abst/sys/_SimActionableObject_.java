@@ -35,5 +35,9 @@ abstract public class _SimActionableObject_ extends _SimObject_ implements Actio
         this.selectedActionList.remove(simAction);
     }
 
+    public void clearSelectedAction() {
+        this.selectedActionList.clear();
+    }
+
     abstract protected void selectActions(); //TODO: set return
 }
