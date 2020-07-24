@@ -39,4 +39,11 @@ public class SweepingRobot extends Robot {
     public void changeState() {
 
     }
+
+    @Override
+    public UpdateResult update(RunResult runResult) {
+        UpdateResult updateResult = super.update(runResult);
+        updateResult.addLog(this.location.getX() + ", " + this.location.getY());
+        return updateResult;
+    }
 }

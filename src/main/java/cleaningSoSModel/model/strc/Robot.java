@@ -6,6 +6,7 @@ import kr.ac.kaist.se.model.behv.Action;
 import kr.ac.kaist.se.model.strc.CS;
 import kr.ac.kaist.se.model.strc.SoS;
 import kr.ac.kaist.se.simdata.output.intermediate.RunResult;
+import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 
 import java.util.ArrayList;
 

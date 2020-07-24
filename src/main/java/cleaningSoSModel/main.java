@@ -6,6 +6,8 @@ import cleaningSoSModel.model.strc.SweepingRobot;
 import cleaningSoSModel.model.strc.CleaningSoS;
 import cleaningSoSModel.simdata.input.CleaningSoSConfiguration;
 import cleaningSoSModel.simdata.input.CleaningSoSScenario;
+import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
+import kr.ac.kaist.se.simdata.output.record.SimLog;
 
 public class main {
     public static void main(String [] args) {
@@ -19,17 +21,24 @@ public class main {
         CleaningSoSScenario cleaningSoSScenario = readScenario(scenarioFile);
 
         SimEngine simEngine = new SimEngine(cleaningSoS, cleaningSoSConfiguration, cleaningSoSScenario);
-        simEngine.executeSimulation();
+        SimLog simLog = simEngine.executeSimulation();
+
+        for(UpdateResult updateResult: simLog.getUpdateResult()) {
+            for(String string: updateResult.getLog()) {
+                System.out.println(string);
+            }
+            System.out.println("");
+        }
     }
 
     private static CleaningSoS readModel(String fileName) {
-        CleaningSoS cleaningSoS = new CleaningSoS();
-        CleaningOrganization cleaningOrganization = new CleaningOrganization(cleaningSoS);
+        CleaningSoS cleaningSoS = new CleaningSoS("cleaningSoS");
+        CleaningOrganization cleaningOrganization = new CleaningOrganization("cleaningOrganization", cleaningSoS);
 
-        SweepingRobot sweepingRobot1 = new SweepingRobot(cleaningSoS, 0, 0, "No1");
+        SweepingRobot sweepingRobot1 = new SweepingRobot(cleaningSoS, 0, 0, "sweepingRobot1");
         sweepingRobot1.addBelongedOrganization(cleaningOrganization);
 
-        SweepingRobot sweepingRobot2 = new SweepingRobot(cleaningSoS, 0, 0, "No2");
+        SweepingRobot sweepingRobot2 = new SweepingRobot(cleaningSoS, 0, 0, "sweepingRobot2");
         sweepingRobot2.addBelongedOrganization(cleaningOrganization);
         return cleaningSoS;
     }
