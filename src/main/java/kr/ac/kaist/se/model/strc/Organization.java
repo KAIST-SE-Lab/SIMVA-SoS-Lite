@@ -1,8 +1,11 @@
 package kr.ac.kaist.se.model.strc;
 
+import kr.ac.kaist.se.model.abst.cap._SimAction_;
 import kr.ac.kaist.se.model.abst.sys._SimObject_;
 import kr.ac.kaist.se.model.behv.Role;
 import kr.ac.kaist.se.model.behv.Task;
+import kr.ac.kaist.se.simdata.output.intermediate.RunResult;
+import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 
 import java.util.ArrayList;
 
@@ -23,6 +26,27 @@ abstract public class Organization extends _SimObject_ {
         this.subOrgList = new ArrayList<Organization>(0);
         this.csList = new ArrayList<CS>(0);
         this.directCsList = new ArrayList<CS>(0);
+    }
+
+    @Override
+    public RunResult run(){
+        RunResult runResult = new RunResult(this, new ArrayList<_SimAction_>(0));
+        for(Organization organization: this.subOrgList) {
+            runResult.addChildRunResult(organization.run());
+        }
+        for(CS cs: this.directCsList) {
+            runResult.addChildRunResult(cs.run());
+        }
+        return runResult;
+    }
+
+    @Override
+    public UpdateResult update(RunResult runResult){
+        for(RunResult childRunResult: runResult.getChildRunResults()) {
+            _SimObject_ target = childRunResult.getTarget();
+            target.update(childRunResult);
+        }
+        return null;
     }
 
     public SoS getSoS() {
