@@ -24,6 +24,8 @@ abstract public class Organization extends _SimObject_ {
 
     public Organization(SoS soS) {
         this.soS = soS;
+        soS.addOrg(this);
+
         this.subOrgList = new ArrayList<Organization>(0);
         this.csList = new ArrayList<CS>(0);
         this.directCsList = new ArrayList<CS>(0);
