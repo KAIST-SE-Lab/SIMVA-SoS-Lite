@@ -9,16 +9,18 @@ import java.util.ArrayList;
 
 abstract public class CS extends SystemEntity implements DecisionMakeable {
     protected SoS soS;
-    protected ArrayList<Organization> belongedOrganizationList;
+    protected Organization organization;
 
     //TODO: Using HashMap or HashTable
     protected ArrayList<InformationData> knowledgeBase;
 
-    public CS (SoS soS) {
+    public CS (SoS soS, Organization organization) {
         this.soS = soS;
         soS.addCS(this);
 
-        this.belongedOrganizationList = new ArrayList<Organization>(0);
+        this.organization = organization;
+        organization.addCS(this);
+
         this.actionList = new ArrayList<_SimAction_>(0);
         this.selectedActionList = new ArrayList<_SimAction_>(0);
     }
@@ -31,18 +33,13 @@ abstract public class CS extends SystemEntity implements DecisionMakeable {
         this.soS = soS;
     }
 
-    public ArrayList<Organization> getBelongedOrganizationList() {
-        return belongedOrganizationList;
+    public Organization getOrganization() {
+        return organization;
     }
 
-    public void addBelongedOrganization(Organization organization) {
-        this.belongedOrganizationList.add(organization);
-        organization.addCs(this);
-    }
-
-    public void removeBelongedOrganization(Organization organization) {
-        this.belongedOrganizationList.remove(organization);
-        organization.removeCs(this);
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+        organization.addCS(this);
     }
 
     public RunResult run() {
