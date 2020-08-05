@@ -4,7 +4,7 @@ import cleaningSoSModel.model.geo.CleaningSoSObjectLocation;
 import cleaningSoSModel.model.strc.Robot;
 import kr.ac.kaist.se.model.behv.Action;
 
-public class Moving extends Action {
+public abstract class Moving extends Action {
     private Robot target;
     private int xDiff;
     private int yDiff;
@@ -24,7 +24,7 @@ public class Moving extends Action {
     public void executeAction(){
         CleaningSoSObjectLocation curLoc = target.getLocation();
         curLoc.setX(curLoc.getX() + xDiff);
-        curLoc.setY(curLoc.getY() + xDiff);
+        curLoc.setY(curLoc.getY() + yDiff);
     }
 
     @Override

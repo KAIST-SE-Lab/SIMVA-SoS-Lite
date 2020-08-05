@@ -1,8 +1,6 @@
 package cleaningSoSModel.model.strc;
 
-import cleaningSoSModel.model.behv.Moving;
-import cleaningSoSModel.model.behv.Sweeping;
-import kr.ac.kaist.se.model.behv.Action;
+import cleaningSoSModel.model.behv.*;
 import kr.ac.kaist.se.model.strc.SoS;
 import kr.ac.kaist.se.simdata.output.intermediate.RunResult;
 import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
@@ -17,18 +15,23 @@ public class SweepingRobot extends Robot {
 
     @Override
     public void selectActions(){
-        if (Math.random() < 0.5) {
-            this.addSelectedAction(new Moving(this, 1, 1));
-        }
-        else {
-            this.addSelectedAction(new Sweeping(this));
-        }
+        doDecisionMaking();
     }
 
     @Override
     public void doDecisionMaking() {
-        if (Math.random() < 0.5) {
-            this.addSelectedAction(new Moving(this, 1, 1));
+        double random = Math.random();
+        if (random < 0.125) {
+            this.addSelectedAction(new MovingUp(this));
+        }
+        else if (random < 0.25) {
+            this.addSelectedAction(new MovingDown(this));
+        }
+        else if (random < 0.375) {
+            this.addSelectedAction(new MovingLeft(this));
+        }
+        else if (random < 0.5) {
+            this.addSelectedAction(new MovingRight(this));
         }
         else {
             this.addSelectedAction(new Sweeping(this));

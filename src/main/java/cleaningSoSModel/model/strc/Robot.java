@@ -1,6 +1,6 @@
 package cleaningSoSModel.model.strc;
 
-import cleaningSoSModel.model.behv.Moving;
+import cleaningSoSModel.model.behv.*;
 import cleaningSoSModel.model.geo.CleaningSoSObjectLocation;
 import kr.ac.kaist.se.model.behv.Action;
 import kr.ac.kaist.se.model.strc.CS;
@@ -16,7 +16,10 @@ public abstract class Robot extends CS {
     public Robot(SoS sos, int x, int y){
         super(sos);
         this.location = new CleaningSoSObjectLocation(x, y);
-        this.actionList.add(new Moving(this, 0, 0));
+        this.addAction(new MovingUp(this));
+        this.addAction(new MovingDown(this));
+        this.addAction(new MovingLeft(this));
+        this.addAction(new MovingRight(this));
     }
 
     public CleaningSoSObjectLocation getLocation() {
