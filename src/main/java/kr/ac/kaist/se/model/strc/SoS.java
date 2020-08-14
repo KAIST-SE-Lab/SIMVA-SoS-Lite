@@ -28,7 +28,8 @@ abstract public class SoS extends _SimObject_ {
     protected ArrayList<ServiceEntity> serviceEntityList;
 
     //Environment entities
-    protected ArrayList<EnvElement> envElmtList;
+    protected ArrayList<ActiveEnvElement> activeEnvElmtList;
+    protected ArrayList<PassiveEnvElement> passiveEnvElmtList;
 
     public SoS(String name) {
         this.name = name;
