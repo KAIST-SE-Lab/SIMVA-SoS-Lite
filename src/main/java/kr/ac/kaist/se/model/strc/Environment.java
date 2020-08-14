@@ -18,6 +18,8 @@ abstract public class Environment extends _SimObject_ {
         this.name = name;
         this.sos = sos;
         sos.addEnvironment(this);
+        this.activeEnvElmtList = new ArrayList<ActiveEnvElement>(0);
+        this.passiveEnvElmtList = new ArrayList<PassiveEnvElement>(0);
     }
     
     public ArrayList<ActiveEnvElement> getActiveEnvElmtList() {

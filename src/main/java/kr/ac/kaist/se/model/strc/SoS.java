@@ -35,6 +35,7 @@ abstract public class SoS extends _SimObject_ {
         this.name = name;
         this.orgList = new ArrayList<Organization>(0);
         this.csList = new ArrayList<CS>(0);
+        this.envList = new ArrayList<Environment>(0);
     }
 
     public RunResult run(){
