@@ -10,6 +10,7 @@ public abstract class Moving extends Action {
     private int yDiff;
 
     public Moving(Robot target, int xDiff, int yDiff){
+        this.name = "Moving " + target.getName();
         this.target = target;
         this.xDiff = xDiff;
         this.yDiff = yDiff;

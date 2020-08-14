@@ -8,6 +8,7 @@ public class Sweeping extends Action {
 
     public Sweeping(Robot target){
         this.target = target;
+        this.name = "Sweeping " + target.getName();
     }
 
     @Override

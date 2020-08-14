@@ -12,6 +12,7 @@ public class InflowDust extends Action {
 
     public InflowDust(OutdoorDust outdoorDust){
         this.outdoorDust = outdoorDust;
+        this.name = "InflowDust";
     }
 
     @Override
@@ -26,6 +27,7 @@ public class InflowDust extends Action {
         int target = random.nextInt(listOfTiles.size());
 
         listOfTiles.get(target).addLevelOfDust(1);
+        this.name = "InflowDust " + listOfTiles.get(target).getName();
     }
 
     @Override

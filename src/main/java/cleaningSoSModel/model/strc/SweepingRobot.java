@@ -1,6 +1,8 @@
 package cleaningSoSModel.model.strc;
 
 import cleaningSoSModel.model.behv.*;
+import kr.ac.kaist.se.model.abst.cap._SimAction_;
+import kr.ac.kaist.se.model.behv.Action;
 import kr.ac.kaist.se.model.strc.Organization;
 import kr.ac.kaist.se.model.strc.SoS;
 import kr.ac.kaist.se.simdata.output.intermediate.RunResult;

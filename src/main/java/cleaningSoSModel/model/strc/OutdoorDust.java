@@ -15,7 +15,9 @@ public class OutdoorDust extends ActiveEnvElement {
         super(name, environment);
         listOfTiles = new ArrayList<Tile>(0);
         this.updateListOfTiles();
-        this.addAction(new InflowDust(this));
+        InflowDust inflowDust = new InflowDust(this);
+        this.addAction(inflowDust);
+        this.addSelectedAction(inflowDust);
     }
 
     public ArrayList<Tile> getListOfTiles() {
@@ -45,5 +47,10 @@ public class OutdoorDust extends ActiveEnvElement {
 
     public RunResult run() {
         return super.run();
+    }
+
+    protected void selectActions() {
+        this.updateListOfTiles();
+        this.addSelectedAction(new InflowDust(this));
     }
 }

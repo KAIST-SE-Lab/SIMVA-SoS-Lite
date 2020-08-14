@@ -2,6 +2,8 @@ package cleaningSoSModel.model.strc;
 
 import kr.ac.kaist.se.model.strc.Environment;
 import kr.ac.kaist.se.model.strc.PassiveEnvElement;
+import kr.ac.kaist.se.simdata.output.intermediate.RunResult;
+import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 
 public class Tile extends PassiveEnvElement {
     protected int levelOfDust;
@@ -22,5 +24,11 @@ public class Tile extends PassiveEnvElement {
         else {
             levelOfDust = 0;
         }
+    }
+
+    public UpdateResult update(RunResult runResult) {
+        UpdateResult updateResult = super.update(runResult);
+        updateResult.addLog(Integer.toString(this.levelOfDust));
+        return updateResult;
     }
 }
