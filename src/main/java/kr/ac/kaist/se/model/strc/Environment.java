@@ -1,6 +1,9 @@
 package kr.ac.kaist.se.model.strc;
 
+import kr.ac.kaist.se.model.abst.cap._SimAction_;
 import kr.ac.kaist.se.model.abst.sys._SimObject_;
+import kr.ac.kaist.se.simdata.output.intermediate.RunResult;
+import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 
 import java.util.ArrayList;
 
@@ -39,5 +42,34 @@ abstract public class Environment extends _SimObject_ {
 
     public void removePassiveEnvElement(PassiveEnvElement passiveEnvElement){
         this.passiveEnvElmtList.remove(passiveEnvElement);
+    }
+
+    public RunResult run() {
+        RunResult runResult = new RunResult(this, new ArrayList<_SimAction_>(0));
+        for(ActiveEnvElement activeEnvElement: this.activeEnvElmtList) {
+            runResult.addChildRunResult(activeEnvElement.run());
+        }
+        for(PassiveEnvElement passiveEnvElement: this.passiveEnvElmtList) {
+            runResult.addChildRunResult(passiveEnvElement.run());
+        }
+        return runResult;
+    }
+
+    public UpdateResult update(RunResult runResult) {
+        UpdateResult updateResult = new UpdateResult(this.name);
+
+        for(RunResult childRunResult: runResult.getChildRunResults()) {
+            if (childRunResult.getTarget() instanceof ActiveEnvElement){
+                ActiveEnvElement target = (ActiveEnvElement) childRunResult.getTarget();
+                UpdateResult updateResult1 = target.update(childRunResult);
+                updateResult.addAllLog(updateResult1.getLog());
+            }
+            if (childRunResult.getTarget() instanceof PassiveEnvElement){
+                PassiveEnvElement target = (PassiveEnvElement) childRunResult.getTarget();
+                UpdateResult updateResult1 = target.update(childRunResult);
+                updateResult.addAllLog(updateResult1.getLog());
+            }
+        }
+        return updateResult;
     }
 }
