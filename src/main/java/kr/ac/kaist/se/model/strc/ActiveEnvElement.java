@@ -6,6 +6,13 @@ import kr.ac.kaist.se.simdata.output.intermediate.RunResult;
 import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 
 public class ActiveEnvElement extends _SimActionableObject_ {
+    protected Environment environment;
+
+    public ActiveEnvElement(String name, Environment environment){
+        this.name = name;
+        this.environment = environment;
+        environment.addActiveEnvElement(this);
+    }
 
     public void doAction(_SimAction_ simAction) {
         simAction.executeAction();
