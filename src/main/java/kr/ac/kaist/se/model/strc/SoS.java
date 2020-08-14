@@ -70,4 +70,12 @@ abstract public class SoS extends _SimObject_ {
     public void removeCS(CS cs) {
         csList.remove(cs);
     }
+    
+    public void addEnvironment(Environment environment) {
+        this.envList.add(environment);
+    }
+
+    public void removeEnvironment(Environment environment) {
+        this.envList.remove(environment);
+    }
 }
