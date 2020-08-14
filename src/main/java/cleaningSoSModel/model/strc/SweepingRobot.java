@@ -1,14 +1,15 @@
 package cleaningSoSModel.model.strc;
 
 import cleaningSoSModel.model.behv.*;
+import kr.ac.kaist.se.model.strc.Organization;
 import kr.ac.kaist.se.model.strc.SoS;
 import kr.ac.kaist.se.simdata.output.intermediate.RunResult;
 import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 
 public class SweepingRobot extends Robot {
 
-    public SweepingRobot(SoS sos, int x, int y, String name) {
-        super(sos, x, y);
+    public SweepingRobot(SoS sos, Organization organization, int x, int y, String name) {
+        super(sos, organization, x, y);
         this.name = name;
         this.addAction(new Sweeping(this));
     }

@@ -35,11 +35,8 @@ public class main {
         CleaningSoS cleaningSoS = new CleaningSoS("cleaningSoS");
         CleaningOrganization cleaningOrganization = new CleaningOrganization("cleaningOrganization", cleaningSoS);
 
-        SweepingRobot sweepingRobot1 = new SweepingRobot(cleaningSoS, 0, 0, "sweepingRobot1");
-        sweepingRobot1.addBelongedOrganization(cleaningOrganization);
-
-        SweepingRobot sweepingRobot2 = new SweepingRobot(cleaningSoS, 0, 0, "sweepingRobot2");
-        sweepingRobot2.addBelongedOrganization(cleaningOrganization);
+        SweepingRobot sweepingRobot1 = new SweepingRobot(cleaningSoS, cleaningOrganization, 0, 0, "sweepingRobot1");
+        SweepingRobot sweepingRobot2 = new SweepingRobot(cleaningSoS, cleaningOrganization, 0, 0, "sweepingRobot2");
         return cleaningSoS;
     }
 

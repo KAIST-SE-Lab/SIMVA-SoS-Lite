@@ -4,6 +4,7 @@ import cleaningSoSModel.model.behv.*;
 import cleaningSoSModel.model.geo.CleaningSoSObjectLocation;
 import kr.ac.kaist.se.model.behv.Action;
 import kr.ac.kaist.se.model.strc.CS;
+import kr.ac.kaist.se.model.strc.Organization;
 import kr.ac.kaist.se.model.strc.SoS;
 import kr.ac.kaist.se.simdata.output.intermediate.RunResult;
 import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
@@ -13,8 +14,8 @@ import java.util.ArrayList;
 public abstract class Robot extends CS {
     protected CleaningSoSObjectLocation location;
 
-    public Robot(SoS sos, int x, int y){
-        super(sos);
+    public Robot(SoS sos, Organization organization, int x, int y){
+        super(sos, organization);
         this.location = new CleaningSoSObjectLocation(x, y);
         this.addAction(new MovingUp(this));
         this.addAction(new MovingDown(this));
