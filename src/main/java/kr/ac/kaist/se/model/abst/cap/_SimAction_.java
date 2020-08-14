@@ -14,4 +14,8 @@ abstract public class _SimAction_ {
     abstract public void executeAction(); //TODO: set return
 
     abstract protected boolean checkPrecondition(); //TODO: where to define the precondition
+
+    public String getName() {
+        return name;
+    }
 }
