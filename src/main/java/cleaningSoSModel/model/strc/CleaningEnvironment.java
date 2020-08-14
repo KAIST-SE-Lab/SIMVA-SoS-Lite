@@ -6,17 +6,15 @@ import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 
 public class CleaningEnvironment extends Environment {
 
-    public CleaningEnvironment(String name, Environment environment) {
-        super(name, environment);
+    public CleaningEnvironment(String name, SoS sos) {
+        super(name, sos);
     }
 
-    @Override
     public RunResult run() {
-        super.run();
+        return super.run();
     }
 
-    @Override
     public UpdateResult update(RunResult runResult) {
-        super.update(runResult);
+        return super.update(runResult);
     }
 }
