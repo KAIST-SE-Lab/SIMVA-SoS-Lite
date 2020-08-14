@@ -43,15 +43,25 @@ abstract public class SoS extends _SimObject_ {
         for(Organization organization: this.orgList) {
             runResult.addChildRunResult(organization.run());
         }
+        for(Environment environment: this.envList) {
+            runResult.addChildRunResult(environment.run());
+        }
         return runResult;
     }
 
     public UpdateResult update(RunResult runResult){
         UpdateResult updateResult = new UpdateResult(this.name);
         for(RunResult childRunResult: runResult.getChildRunResults()) {
-            Organization target = (Organization) childRunResult.getTarget();
-            UpdateResult updateResult1 = target.update(childRunResult);
-            updateResult.addAllLog(updateResult1.getLog());
+            if (childRunResult.getTarget() instanceof Organization){
+                Organization target = (Organization) childRunResult.getTarget();
+                UpdateResult updateResult1 = target.update(childRunResult);
+                updateResult.addAllLog(updateResult1.getLog());
+            }
+            if (childRunResult.getTarget() instanceof Environment){
+                Environment target = (Environment) childRunResult.getTarget();
+                UpdateResult updateResult1 = target.update(childRunResult);
+                updateResult.addAllLog(updateResult1.getLog());
+            }
         }
         return updateResult;
     }
@@ -71,7 +81,7 @@ abstract public class SoS extends _SimObject_ {
     public void removeCS(CS cs) {
         csList.remove(cs);
     }
-    
+
     public void addEnvironment(Environment environment) {
         this.envList.add(environment);
     }

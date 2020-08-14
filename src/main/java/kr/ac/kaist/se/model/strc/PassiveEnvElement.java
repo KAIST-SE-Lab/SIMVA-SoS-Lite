@@ -10,6 +10,7 @@ public class PassiveEnvElement extends _SimNonActionableObject_ {
     public PassiveEnvElement(String name, Environment environment){
         this.name = name;
         this.environment = environment;
+        environment.addPassiveEnvElement(this);
     }
 
     public RunResult run() {

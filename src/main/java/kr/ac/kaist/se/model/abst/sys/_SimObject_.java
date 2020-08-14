@@ -10,4 +10,8 @@ abstract public class _SimObject_ implements Simulatable {
 
     //TODO: representation of object location
     //curLoc ObjectLocation;
+
+    public String getName() {
+        return name;
+    }
 }

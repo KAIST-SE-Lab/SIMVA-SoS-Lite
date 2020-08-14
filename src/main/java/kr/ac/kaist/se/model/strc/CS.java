@@ -53,6 +53,7 @@ abstract public class CS extends SystemEntity implements DecisionMakeable {
 
         for (_SimAction_ selectedAction: runResult.getSelectedActionList()) {
             doAction(selectedAction);
+            updateResult.addLog(selectedAction.getName());
         }
         return updateResult;
     }
