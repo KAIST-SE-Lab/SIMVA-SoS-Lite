@@ -8,5 +8,6 @@ abstract public class Environment extends _SimObject_ {
 
     protected EnumEnvType envType;
 
-    protected ArrayList<EnvElement> envElmtList;
+    protected ArrayList<ActiveEnvElement> activeEnvElmtList;
+    protected ArrayList<PassiveEnvElement> passiveEnvElmtList;
 }
