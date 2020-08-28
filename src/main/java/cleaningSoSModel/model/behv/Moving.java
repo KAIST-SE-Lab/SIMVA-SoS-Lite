@@ -1,5 +1,7 @@
 package cleaningSoSModel.model.behv;
 
+import cleaningSoSModel.model.geo.CleaningSoSLocationInformation;
+import cleaningSoSModel.model.geo.CleaningSoSMap;
 import cleaningSoSModel.model.geo.CleaningSoSObjectLocation;
 import cleaningSoSModel.model.strc.Robot;
 import kr.ac.kaist.se.model.behv.Action;
@@ -23,13 +25,22 @@ public abstract class Moving extends Action {
 
     @Override
     public void executeAction(){
-        CleaningSoSObjectLocation curLoc = target.getLocation();
+        CleaningSoSObjectLocation curLoc = (CleaningSoSObjectLocation) target.getLocation();
         curLoc.setX(curLoc.getX() + xDiff);
         curLoc.setY(curLoc.getY() + yDiff);
     }
 
     @Override
     public boolean checkPrecondition(){
-        return true;
+        CleaningSoSMap cleaningSoSMap = (CleaningSoSMap) this.target.getSos().getMap();
+        CleaningSoSObjectLocation curLoc = (CleaningSoSObjectLocation) target.getLocation();
+
+        CleaningSoSObjectLocation newLoc = new CleaningSoSObjectLocation(curLoc.getX() + xDiff, curLoc.getY() + yDiff, curLoc.getFloor());
+
+        if (cleaningSoSMap.isValidLocation(newLoc)){
+            CleaningSoSLocationInformation newLocInfo = (CleaningSoSLocationInformation) cleaningSoSMap.getLocationInfo(newLoc);
+            return !newLocInfo.isWall();
+        }
+        return false;
     }
 }

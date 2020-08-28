@@ -40,7 +40,11 @@ public class main {
         CleaningEnvironment cleaningEnvironment = new CleaningEnvironment("cleaningEnvironment", cleaningSoS);
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 3; j++){
-                Tile tile = new Tile("tile" + Integer.toString(i) + Integer.toString(j), cleaningEnvironment);
+                String name = "tile" + Integer.toString(i) + Integer.toString(j);
+                if (i != 1 || j != 1){
+                    Tile tile = new Tile(name + "FIRST", i, j, Floor.FIRST, cleaningEnvironment);
+                }
+                Tile tileUnder = new Tile(name + "UNDERGROUND", i, j, Floor.UNDERGROUND, cleaningEnvironment);
             }
         }
 

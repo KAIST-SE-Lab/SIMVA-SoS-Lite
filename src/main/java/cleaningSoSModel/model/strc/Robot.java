@@ -13,7 +13,6 @@ import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 import java.util.ArrayList;
 
 public abstract class Robot extends CS {
-    protected CleaningSoSObjectLocation location;
 
     public Robot(SoS sos, Organization organization, int x, int y, Floor floor){
         super(sos, organization);
@@ -22,9 +21,5 @@ public abstract class Robot extends CS {
         this.addAction(new MovingDown(this));
         this.addAction(new MovingLeft(this));
         this.addAction(new MovingRight(this));
-    }
-
-    public CleaningSoSObjectLocation getLocation() {
-        return this.location;
     }
 }

@@ -1,5 +1,7 @@
 package cleaningSoSModel.model.strc;
 
+import cleaningSoSModel.model.geo.CleaningSoSObjectLocation;
+import cleaningSoSModel.model.geo.Floor;
 import kr.ac.kaist.se.model.strc.Environment;
 import kr.ac.kaist.se.model.strc.PassiveEnvElement;
 import kr.ac.kaist.se.simdata.output.intermediate.RunResult;
@@ -8,9 +10,10 @@ import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 public class Tile extends PassiveEnvElement {
     protected int levelOfDust;
 
-    public Tile(String name, Environment environment) {
+    public Tile(String name, int x, int y, Floor floor, Environment environment) {
         super(name, environment);
         this.levelOfDust = 10;
+        this.location = new CleaningSoSObjectLocation(x, y, floor);
     }
 
     public void addLevelOfDust(int num){

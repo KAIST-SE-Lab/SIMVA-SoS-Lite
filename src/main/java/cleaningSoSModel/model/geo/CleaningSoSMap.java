@@ -10,7 +10,6 @@ public class CleaningSoSMap extends Map {
     private int minY = 0;
     private int maxY = 2;
 
-
     @Override
     public boolean isValidLocation(ObjectLocation loc) {
         CleaningSoSObjectLocation curLoc = (CleaningSoSObjectLocation)loc;
@@ -40,7 +39,7 @@ public class CleaningSoSMap extends Map {
                 roomID = "C";
             }
             else{
-                if(curLoc.getX() == 2 && curLoc.getY() == 2){
+                if(curLoc.getX() == 1 && curLoc.getY() == 1){
                     wallOrNot = true;
                 }
                 else{

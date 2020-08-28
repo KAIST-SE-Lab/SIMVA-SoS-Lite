@@ -1,13 +1,17 @@
 package cleaningSoSModel.model.strc;
 
 import cleaningSoSModel.model.behv.*;
+import cleaningSoSModel.model.geo.CleaningSoSMap;
+import cleaningSoSModel.model.geo.CleaningSoSObjectLocation;
 import cleaningSoSModel.model.geo.Floor;
-import kr.ac.kaist.se.model.abst.cap._SimAction_;
 import kr.ac.kaist.se.model.behv.Action;
 import kr.ac.kaist.se.model.strc.Organization;
 import kr.ac.kaist.se.model.strc.SoS;
 import kr.ac.kaist.se.simdata.output.intermediate.RunResult;
 import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class SweepingRobot extends Robot {
 
@@ -22,27 +26,37 @@ public class SweepingRobot extends Robot {
         doDecisionMaking();
     }
 
-    @Override
     public void doDecisionMaking() {
-        double random = Math.random();
-        if (random < 0.125) {
-            this.addSelectedAction(new MovingUp(this));
+        ArrayList<Action> availableAction = new ArrayList<Action>(0);
+        CleaningSoSMap sosMap = (CleaningSoSMap) this.sos.getMap();
+        availableAction.add(new Sweeping(this));
+
+        MovingUp movingUp = new MovingUp(this);
+        if (movingUp.checkPrecondition()) {
+            availableAction.add(movingUp);
         }
-        else if (random < 0.25) {
-            this.addSelectedAction(new MovingDown(this));
+
+        MovingDown movingDown = new MovingDown(this);
+        if (movingDown.checkPrecondition()) {
+            availableAction.add(movingDown);
         }
-        else if (random < 0.375) {
-            this.addSelectedAction(new MovingLeft(this));
+
+        MovingLeft movingLeft = new MovingLeft(this);
+        if (movingLeft.checkPrecondition()) {
+            availableAction.add(movingLeft);
         }
-        else if (random < 0.5) {
-            this.addSelectedAction(new MovingRight(this));
+
+        MovingRight movingRight = new MovingRight(this);
+        if (movingRight.checkPrecondition()) {
+            availableAction.add(movingRight);
         }
-        else {
-            this.addSelectedAction(new Sweeping(this));
-        }
+
+        Random random = new Random();
+        int target = random.nextInt(availableAction.size());
+
+        selectedActionList.add(availableAction.get(target));
     }
 
-    @Override
     public void changeState() {
 
     }
@@ -50,7 +64,8 @@ public class SweepingRobot extends Robot {
     @Override
     public UpdateResult update(RunResult runResult) {
         UpdateResult updateResult = super.update(runResult);
-        updateResult.addLog(this.location.getX() + ", " + this.location.getY());
+        CleaningSoSObjectLocation curLoc = (CleaningSoSObjectLocation) this.getLocation();
+        updateResult.addLog(curLoc.getX() + ", " + curLoc.getY() + ", " + curLoc.getFloor());
         return updateResult;
     }
 }

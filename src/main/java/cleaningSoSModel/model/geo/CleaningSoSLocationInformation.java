@@ -3,20 +3,20 @@ package cleaningSoSModel.model.geo;
 import kr.ac.kaist.se.model.geo.LocationInformation;
 
 public class CleaningSoSLocationInformation extends LocationInformation {
-    private boolean wallOrNot;
+    private boolean isWall;
     private boolean isCleaningTarget;
     private boolean isChargingStation;
     private String roomID;
 
     public CleaningSoSLocationInformation(boolean wall, boolean cleaningTarget, boolean chargingStation, String room){
-        this.wallOrNot = wall;
+        this.isWall = wall;
         this.isCleaningTarget = cleaningTarget;
         this.isChargingStation = chargingStation;
         this.roomID = room;
     }
 
-    public boolean isWallOrNot() {
-        return wallOrNot;
+    public boolean isWall() {
+        return isWall;
     }
 
     public boolean isCleaningTarget() {
