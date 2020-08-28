@@ -5,10 +5,12 @@ import kr.ac.kaist.se.model.geo.ObjectLocation;
 public class CleaningSoSObjectLocation extends ObjectLocation {
     private int x;
     private int y;
+    private Floor floor;
 
-    public CleaningSoSObjectLocation(int x, int y){
+    public CleaningSoSObjectLocation(int x, int y, Floor f){
         this.x = x;
         this.y = y;
+        this.floor = f;
     }
 
     public int getX(){
@@ -25,5 +27,13 @@ public class CleaningSoSObjectLocation extends ObjectLocation {
 
     public void setY(int y){
         this.y = y;
+    }
+
+    public Floor getFloor() {
+        return floor;
+    }
+
+    public void setFloor(Floor floor) {
+        this.floor = floor;
     }
 }

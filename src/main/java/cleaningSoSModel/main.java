@@ -1,5 +1,6 @@
 package cleaningSoSModel;
 
+import cleaningSoSModel.model.geo.Floor;
 import cleaningSoSModel.model.strc.*;
 import kr.ac.kaist.se.cont.sim.SimEngine;
 import cleaningSoSModel.simdata.input.CleaningSoSConfiguration;
@@ -33,8 +34,8 @@ public class main {
         CleaningSoS cleaningSoS = new CleaningSoS("cleaningSoS");
         CleaningOrganization cleaningOrganization = new CleaningOrganization("cleaningOrganization", cleaningSoS);
 
-        SweepingRobot sweepingRobot1 = new SweepingRobot(cleaningSoS, cleaningOrganization, 0, 0, "sweepingRobot1");
-        SweepingRobot sweepingRobot2 = new SweepingRobot(cleaningSoS, cleaningOrganization, 0, 0, "sweepingRobot2");
+        SweepingRobot sweepingRobot1 = new SweepingRobot(cleaningSoS, cleaningOrganization, 0, 0, Floor.FIRST, "sweepingRobot1");
+        SweepingRobot sweepingRobot2 = new SweepingRobot(cleaningSoS, cleaningOrganization, 0, 0, Floor.FIRST, "sweepingRobot2");
 
         CleaningEnvironment cleaningEnvironment = new CleaningEnvironment("cleaningEnvironment", cleaningSoS);
         for (int i = 0; i < 3; i++){
