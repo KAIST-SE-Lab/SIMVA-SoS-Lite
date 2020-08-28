@@ -4,9 +4,11 @@ import kr.ac.kaist.se.model.abst.cap._SimAction_;
 import kr.ac.kaist.se.model.abst.sys._SimObject_;
 import kr.ac.kaist.se.model.behv.Action;
 import kr.ac.kaist.se.model.behv.Task;
+import kr.ac.kaist.se.model.geo.Map;
 import kr.ac.kaist.se.simdata.output.intermediate.RunResult;
 import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 abstract public class SoS extends _SimObject_ {
@@ -30,6 +32,8 @@ abstract public class SoS extends _SimObject_ {
     //Environment entities
     protected ArrayList<ActiveEnvElement> activeEnvElmtList;
     protected ArrayList<PassiveEnvElement> passiveEnvElmtList;
+
+    protected Map map;
 
     public SoS(String name) {
         this.name = name;
@@ -82,11 +86,46 @@ abstract public class SoS extends _SimObject_ {
         csList.remove(cs);
     }
 
+    public CS searchCS(String name){
+        for(CS cs : this.csList){
+            if (cs.getName().equals(name)){
+                return cs;
+            }
+        }
+        return null;
+    }
+
     public void addEnvironment(Environment environment) {
         this.envList.add(environment);
     }
 
     public void removeEnvironment(Environment environment) {
         this.envList.remove(environment);
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public ActiveEnvElement searchActiveEnvElement(String name){
+        for(Environment environment : this.envList){
+            for(ActiveEnvElement activeEnvElement: environment.activeEnvElmtList){
+                if (activeEnvElement.getName().equals(name)){
+                    return activeEnvElement;
+                }
+            }
+        }
+        return null;
+    }
+
+    public PassiveEnvElement searchPassiveEnvElement(String name){
+        for(Environment environment : this.envList){
+            for(PassiveEnvElement passiveEnvElement: environment.passiveEnvElmtList){
+                if (passiveEnvElement.getName().equals(name)){
+                    return passiveEnvElement;
+                }
+            }
+        }
+        return null;
     }
 }
