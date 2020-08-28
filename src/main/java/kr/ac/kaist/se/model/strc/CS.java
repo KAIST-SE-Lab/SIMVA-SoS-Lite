@@ -8,15 +8,15 @@ import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 import java.util.ArrayList;
 
 abstract public class CS extends SystemEntity implements DecisionMakeable {
-    protected SoS soS;
+    protected SoS sos;
     protected Organization organization;
 
     //TODO: Using HashMap or HashTable
     protected ArrayList<InformationData> knowledgeBase;
 
-    public CS (SoS soS, Organization organization) {
-        this.soS = soS;
-        soS.addCS(this);
+    public CS (SoS sos, Organization organization) {
+        this.sos = sos;
+        sos.addCS(this);
 
         this.organization = organization;
         organization.addCS(this);
@@ -25,12 +25,12 @@ abstract public class CS extends SystemEntity implements DecisionMakeable {
         this.selectedActionList = new ArrayList<_SimAction_>(0);
     }
 
-    public SoS getSoS() {
-        return soS;
+    public SoS getSos() {
+        return sos;
     }
 
-    public void setSoS(SoS soS) {
-        this.soS = soS;
+    public void setSos(SoS sos) {
+        this.sos = sos;
     }
 
     public Organization getOrganization() {

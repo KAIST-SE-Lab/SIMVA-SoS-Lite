@@ -21,11 +21,11 @@ abstract public class Environment extends _SimObject_ {
         this.activeEnvElmtList = new ArrayList<ActiveEnvElement>(0);
         this.passiveEnvElmtList = new ArrayList<PassiveEnvElement>(0);
     }
-    
+
     public ArrayList<ActiveEnvElement> getActiveEnvElmtList() {
         return activeEnvElmtList;
     }
-    
+
     public void addActiveEnvElement(ActiveEnvElement activeEnvElement){
         this.activeEnvElmtList.add(activeEnvElement);
     }
@@ -73,5 +73,23 @@ abstract public class Environment extends _SimObject_ {
             }
         }
         return updateResult;
+    }
+
+    public ActiveEnvElement searchActiveEnvElement(String name){
+        for(ActiveEnvElement activeEnvElement : this.activeEnvElmtList){
+            if (activeEnvElement.getName().equals(name)){
+                return activeEnvElement;
+            }
+        }
+        return null;
+    }
+
+    public PassiveEnvElement searchPassiveEnvElement(String name){
+        for(PassiveEnvElement passiveEnvElement : this.passiveEnvElmtList){
+            if (passiveEnvElement.getName().equals(name)){
+                return passiveEnvElement;
+            }
+        }
+        return null;
     }
 }
