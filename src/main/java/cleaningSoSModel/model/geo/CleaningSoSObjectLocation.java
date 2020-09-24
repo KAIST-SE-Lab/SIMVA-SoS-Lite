@@ -36,4 +36,26 @@ public class CleaningSoSObjectLocation extends ObjectLocation {
     public void setFloor(Floor floor) {
         this.floor = floor;
     }
+
+    public boolean isSameLocation(ObjectLocation target){
+        if(!(target instanceof CleaningSoSObjectLocation)){
+            return false;
+        }
+
+        CleaningSoSObjectLocation cleaningSoSObjectLocation = (CleaningSoSObjectLocation) target;
+
+        if(this.x != cleaningSoSObjectLocation.getX()){
+            return false;
+        }
+
+        if(this.y != cleaningSoSObjectLocation.getY()){
+            return false;
+        }
+
+        if(this.floor != cleaningSoSObjectLocation.getFloor()){
+            return false;
+        }
+
+        return true;
+    }
 }

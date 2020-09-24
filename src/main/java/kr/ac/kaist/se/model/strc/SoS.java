@@ -128,4 +128,18 @@ abstract public class SoS extends _SimObject_ {
         }
         return null;
     }
+
+    public void updateMapObjectLocationArrayListHashMap(){
+        this.map.clearObjectLocationArrayListHashMap();
+
+        for(CS cs: this.csList){
+            this.map.addObjectLocationArrayListHashMap(cs.getLocation(), cs);
+        }
+
+        for(Environment environment: this.envList){
+            for(PassiveEnvElement passiveEnvElement: environment.passiveEnvElmtList){
+                this.map.addObjectLocationArrayListHashMap(passiveEnvElement.getLocation(), passiveEnvElement);
+            }
+        }
+    }
 }

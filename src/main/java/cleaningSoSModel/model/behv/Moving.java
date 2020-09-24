@@ -4,6 +4,7 @@ import cleaningSoSModel.model.geo.CleaningSoSLocationInformation;
 import cleaningSoSModel.model.geo.CleaningSoSMap;
 import cleaningSoSModel.model.geo.CleaningSoSObjectLocation;
 import cleaningSoSModel.model.strc.Robot;
+import kr.ac.kaist.se.model.abst.sys._SimObject_;
 import kr.ac.kaist.se.model.behv.Action;
 
 public abstract class Moving extends Action {
@@ -39,8 +40,27 @@ public abstract class Moving extends Action {
 
         if (cleaningSoSMap.isValidLocation(newLoc)){
             CleaningSoSLocationInformation newLocInfo = (CleaningSoSLocationInformation) cleaningSoSMap.getLocationInfo(newLoc);
+
+            if(newLocInfo == null){
+                return false;
+            }
+
+            for(_SimObject_ target: newLocInfo.getObjectArrayList()){
+                if(target instanceof Robot){
+                    return false;
+                }
+            }
+
             return !newLocInfo.isWall();
         }
         return false;
+    }
+
+    public int getXDiff() {
+        return xDiff;
+    }
+
+    public int getYDiff() {
+        return yDiff;
     }
 }

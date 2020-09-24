@@ -1,8 +1,8 @@
 package cleaningSoSModel;
 
+import cleaningSoSModel.cont.sim.CleaningSoSSimEngine;
 import cleaningSoSModel.model.geo.Floor;
 import cleaningSoSModel.model.strc.*;
-import kr.ac.kaist.se.cont.sim.SimEngine;
 import cleaningSoSModel.simdata.input.CleaningSoSConfiguration;
 import cleaningSoSModel.simdata.input.CleaningSoSScenario;
 import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
@@ -19,8 +19,8 @@ public class main {
         String scenarioFile = "";
         CleaningSoSScenario cleaningSoSScenario = readScenario(scenarioFile);
 
-        SimEngine simEngine = new SimEngine(cleaningSoS, cleaningSoSConfiguration, cleaningSoSScenario);
-        SimLog simLog = simEngine.executeSimulation();
+        CleaningSoSSimEngine cleaningSoSSimEngine = new CleaningSoSSimEngine(cleaningSoS, cleaningSoSConfiguration, cleaningSoSScenario);
+        SimLog simLog = cleaningSoSSimEngine.executeSimulation();
 
         for(UpdateResult updateResult: simLog.getUpdateResult()) {
             for(String string: updateResult.getLog()) {
@@ -35,7 +35,7 @@ public class main {
         CleaningOrganization cleaningOrganization = new CleaningOrganization("cleaningOrganization", cleaningSoS);
 
         SweepingRobot sweepingRobot1 = new SweepingRobot(cleaningSoS, cleaningOrganization, 0, 0, Floor.FIRST, "sweepingRobot1");
-        SweepingRobot sweepingRobot2 = new SweepingRobot(cleaningSoS, cleaningOrganization, 0, 0, Floor.FIRST, "sweepingRobot2");
+        SweepingRobot sweepingRobot2 = new SweepingRobot(cleaningSoS, cleaningOrganization, 0, 1, Floor.FIRST, "sweepingRobot2");
 
         CleaningEnvironment cleaningEnvironment = new CleaningEnvironment("cleaningEnvironment", cleaningSoS);
         for (int i = 0; i < 3; i++){

@@ -1,6 +1,9 @@
 package cleaningSoSModel.model.geo;
 
+import kr.ac.kaist.se.model.abst.sys._SimObject_;
 import kr.ac.kaist.se.model.geo.LocationInformation;
+
+import java.util.ArrayList;
 
 public class CleaningSoSLocationInformation extends LocationInformation {
     private boolean isWall;
@@ -8,7 +11,8 @@ public class CleaningSoSLocationInformation extends LocationInformation {
     private boolean isChargingStation;
     private String roomID;
 
-    public CleaningSoSLocationInformation(boolean wall, boolean cleaningTarget, boolean chargingStation, String room){
+    public CleaningSoSLocationInformation(ArrayList<_SimObject_> objectArrayList, boolean wall, boolean cleaningTarget, boolean chargingStation, String room){
+        super(objectArrayList);
         this.isWall = wall;
         this.isCleaningTarget = cleaningTarget;
         this.isChargingStation = chargingStation;

@@ -62,7 +62,7 @@ public class CleaningSoSMap extends Map {
                     roomID = "B";
                 }
             }
-            return new CleaningSoSLocationInformation(wallOrNot, isCleaningTarget, isChargingStation, roomID);
+            return new CleaningSoSLocationInformation(this.getLocationArrayList(loc), wallOrNot, isCleaningTarget, isChargingStation, roomID);
         }
         else{
             return null;

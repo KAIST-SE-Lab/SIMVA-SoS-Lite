@@ -34,10 +34,14 @@ public class RunResult {
     }
 
     public void removeChildRunResult(RunResult runResult) {
-        this.childRunResults.add(runResult);
+        this.childRunResults.remove(runResult);
     }
 
     public void clearChildRunResult() {
         this.childRunResults.clear();
+    }
+
+    public void clearSelectedActionList() {
+        this.selectedActionList.clear();
     }
 }
