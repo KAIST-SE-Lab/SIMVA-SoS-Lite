@@ -1,7 +1,9 @@
 package kr.ac.kaist.se.intf;
 
-public interface Simulatable {
-    void run();
+import kr.ac.kaist.se.simdata.output.intermediate.RunResult;
+import kr.ac.kaist.se.simdata.output.intermediate.UpdateResult;
 
-    void update();
+public interface Simulatable {
+    RunResult run();
+    UpdateResult update(RunResult runResult);
 }

@@ -1,4 +1,4 @@
-package kr.ac.kaist.se.simdata.output;
+package kr.ac.kaist.se.simdata.output.record;
 
 import kr.ac.kaist.se.model.evnt._SimEvent_;
 

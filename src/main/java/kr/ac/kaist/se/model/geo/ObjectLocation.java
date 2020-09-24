@@ -1,5 +1,5 @@
 package kr.ac.kaist.se.model.geo;
 
-public class ObjectLocation {
-    //TODO: Yongjun - Specification of ObjectLocation conforming to Map
+public abstract class ObjectLocation {
+    public abstract boolean isSameLocation(ObjectLocation target);
 }
