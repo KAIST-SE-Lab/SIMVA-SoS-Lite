@@ -12,7 +12,6 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 abstract public class SoS extends _SimObject_ {
-
     //High-level containers
     protected ArrayList<Organization> orgList;
     protected ArrayList<Infrastructure> infraList;
