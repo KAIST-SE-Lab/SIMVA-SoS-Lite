@@ -7,7 +7,6 @@ import kr.ac.kaist.se.model.strc.CS;
 import java.util.ArrayList;
 
 abstract public class Role extends _SimNonActionableObject_ {
-
     //Already defined in _SimObject_
 //    String roleId;
 //    String roleName;
