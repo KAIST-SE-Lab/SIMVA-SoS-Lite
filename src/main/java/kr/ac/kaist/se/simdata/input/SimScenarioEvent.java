@@ -7,7 +7,6 @@ import kr.ac.kaist.se.model.evnt.EnumProbDistribution;
 import kr.ac.kaist.se.model.evnt._SimEvent_;
 
 public class SimScenarioEvent extends _SimEvent_ {
-
     //ScenarioEvent should have a specific target object (or scope of objects)
     //TODO: direct reference to an object
     protected _SimObject_ targetObj;
