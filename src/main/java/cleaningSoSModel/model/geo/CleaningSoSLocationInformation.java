@@ -34,4 +34,4 @@ public class CleaningSoSLocationInformation extends LocationInformation {
     public String getRoomID() {
         return roomID;
     }
-}
+} 
