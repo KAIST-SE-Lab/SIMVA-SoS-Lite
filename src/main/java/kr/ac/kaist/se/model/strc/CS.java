@@ -23,7 +23,7 @@ abstract public class CS extends SystemEntity implements DecisionMakeable {
 
         this.actionList = new ArrayList<_SimAction_>(0);
         this.selectedActionList = new ArrayList<_SimAction_>(0);
-    }
+    } 
 
     public SoS getSos() {
         return sos;

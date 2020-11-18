@@ -32,7 +32,7 @@ abstract public class SoS extends _SimObject_ {
     //Environment entities
     protected ArrayList<ActiveEnvElement> activeEnvElmtList;
     protected ArrayList<PassiveEnvElement> passiveEnvElmtList;
- 
+
     protected Map map;
 
     public SoS(String name) {
